@@ -6,7 +6,7 @@ export function useClaudeAPI() {
   const [error, setError] = useState(null);
   const [abortController, setAbortController] = useState(null);
 
-  const generate = useCallback(async (prompt, onChunk) => {
+  const generate = useCallback(async (prompt, onChunk, provider = 'claude') => {
     setIsLoading(true);
     setError(null);
 
@@ -17,6 +17,7 @@ export function useClaudeAPI() {
       const content = await generateContent(prompt, {
         onChunk,
         signal: controller.signal,
+        provider,
         onError: (err) => {
           setError(err);
         }

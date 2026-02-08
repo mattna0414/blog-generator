@@ -42,6 +42,7 @@ function AppContent() {
   const [showResults, setShowResults] = useState(false);
 
   const handleGenerate = async () => {
+    console.log('Generate button clicked');
     clearError();
     setValidationErrors({});
 
@@ -53,8 +54,10 @@ function AppContent() {
     }
 
     // API 키 확인
-    if (!hasValidAPIKey()) {
-      setError('API 키가 설정되지 않았습니다. .env 파일에 VITE_ANTHROPIC_API_KEY를 설정해주세요.');
+    if (!hasValidAPIKey(settings.aiProvider)) {
+      const providerName = settings.aiProvider === 'gemini' ? 'Gemini' : 'Claude';
+      const keyName = settings.aiProvider === 'gemini' ? 'VITE_GEMINI_API_KEY' : 'VITE_ANTHROPIC_API_KEY';
+      setError(`${providerName} API 키가 설정되지 않았습니다. .env 파일에 ${keyName}를 설정해주세요.`);
       return;
     }
 
@@ -69,7 +72,7 @@ function AppContent() {
 
       const content = await generate(prompt, (chunk) => {
         setGeneratedContent(prev => prev + chunk);
-      });
+      }, settings.aiProvider);
 
       // 생성 완료 후 히스토리에 저장
       saveDraft({
@@ -104,6 +107,7 @@ function AppContent() {
   };
 
   const handleRegenerate = () => {
+    console.log('ㅁㅁ');
     setShowResults(false);
     setGeneratedContent('');
     setTimeout(() => handleGenerate(), 100);

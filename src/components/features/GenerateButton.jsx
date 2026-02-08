@@ -25,7 +25,7 @@ export function GenerateButton({ onClick, onCancel, isGenerating, disabled }) {
       className="w-full"
     >
       <Sparkles size={20} className="mr-2" />
-      블로그 초안 생성하기
+      블로그 초안 생성하기!!
     </Button>
   );
 }

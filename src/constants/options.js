@@ -18,6 +18,11 @@ export const TONE_OPTIONS = [
   { value: 'neutral', label: '중립적', description: '객관적인 톤' }
 ];
 
+export const AI_PROVIDER_OPTIONS = [
+  { value: 'claude', label: 'Claude (Anthropic)', description: '고품질 장문 생성' },
+  { value: 'gemini', label: 'Gemini (Google)', description: '무료 API 지원' }
+];
+
 export const CONTENT_OPTIONS = [
   { id: 'includeCode', label: '코드 예제 포함', description: '실제 동작하는 코드' },
   { id: 'includeDiagrams', label: '다이어그램/시각자료 설명', description: '구조와 흐름 설명' },
@@ -33,6 +38,7 @@ export const DEFAULT_SETTINGS = {
   length: 'medium',
   difficulty: 'intermediate',
   tone: 'neutral',
+  aiProvider: 'claude',
   contentOptions: {
     includeCode: false,
     includeDiagrams: false,

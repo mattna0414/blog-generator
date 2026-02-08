@@ -2,6 +2,7 @@ import { TopicInput } from './TopicInput';
 import { LengthSelector } from './LengthSelector';
 import { DifficultySelector } from './DifficultySelector';
 import { ToneSelector } from './ToneSelector';
+import { AIProviderSelector } from './AIProviderSelector';
 import { ContentOptions } from './ContentOptions';
 import { Input, Textarea } from '../ui/Input';
 import { useBlog } from '../../contexts/BlogContext';
@@ -37,6 +38,11 @@ export function BlogSettingsForm({ errors = {} }) {
         onChange={(value) => handleChange('tone', value)}
       />
 
+      <AIProviderSelector
+        value={settings.aiProvider}
+        onChange={(value) => handleChange('aiProvider', value)}
+      />
+
       <ContentOptions
         values={settings.contentOptions}
         onChange={updateContentOption}
@@ -48,14 +54,14 @@ export function BlogSettingsForm({ errors = {} }) {
         <Input
           label="대상 독자층 (선택)"
           placeholder="예: 1-2년차 프론트엔드 개발자"
-          value={settings.targetAudience}
+          value={settings.targetAudience || '3년차 이하의 프론트엔드 개발자'}
           onChange={(e) => handleChange('targetAudience', e.target.value)}
         />
 
         <Input
           label="기술 스택 (선택)"
           placeholder="예: React, TypeScript, Next.js"
-          value={settings.techStack}
+          value={settings.techStack || 'react, typescript, nextjs'}
           onChange={(e) => handleChange('techStack', e.target.value)}
         />
 

@@ -1,10 +1,18 @@
 // 앱 설정 상수
 
 export const API_CONFIG = {
-  ANTHROPIC_API_URL: 'https://api.anthropic.com/v1/messages',
-  MODEL: 'claude-sonnet-4-20250514',
-  MAX_TOKENS: 4000,
-  TEMPERATURE: 1.0
+  ANTHROPIC: {
+    API_URL: 'https://api.anthropic.com/v1/messages',
+    MODEL: 'claude-sonnet-4-20250514',
+    MAX_TOKENS: 4000,
+    TEMPERATURE: 1.0
+  },
+  GEMINI: {
+    // MODEL: 'gemini-1.5-flash-latest',
+    MODEL: 'gemini-2.5-flash-lite',
+    MAX_TOKENS: 8000,
+    TEMPERATURE: 1.0
+  }
 };
 
 export const STORAGE_CONFIG = {
