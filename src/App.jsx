@@ -142,6 +142,7 @@ function AppContent() {
                 <ProgressIndicator
                   message={progress}
                   isVisible={isGenerating}
+                  provider={settings.aiProvider === 'gemini' ? 'Gemini' : 'Claude'}
                 />
 
                 <div className="mt-4">
@@ -182,6 +183,7 @@ function AppContent() {
               <ProgressIndicator
                 message={progress}
                 isVisible={true}
+                provider={settings.aiProvider === 'gemini' ? 'Gemini' : 'Claude'}
               />
             )}
 

@@ -3,7 +3,7 @@ import { API_CONFIG } from '../constants/config';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export async function generateContent(prompt, options = {}) {
-  const { onChunk, onError, signal, provider = 'claude' } = options;
+  const { onChunk, onError, signal, provider = 'gemini' } = options;
 
   if (provider === 'gemini') {
     return generateWithGemini(prompt, { onChunk, onError, signal });
@@ -152,7 +152,7 @@ export class APIError extends Error {
   }
 }
 
-export function hasValidAPIKey(provider = 'claude') {
+export function hasValidAPIKey(provider = 'gemini') {
   if (provider === 'gemini') {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
     return !!(apiKey && apiKey.length > 0);

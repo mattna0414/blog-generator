@@ -19,7 +19,7 @@ export const TONE_OPTIONS = [
 ];
 
 export const AI_PROVIDER_OPTIONS = [
-  { value: 'claude', label: 'Claude (Anthropic)', description: '고품질 장문 생성' },
+  // { value: 'claude', label: 'Claude (Anthropic)', description: '고품질 장문 생성' },
   { value: 'gemini', label: 'Gemini (Google)', description: '무료 API 지원' }
 ];
 
@@ -38,7 +38,7 @@ export const DEFAULT_SETTINGS = {
   length: 'medium',
   difficulty: 'intermediate',
   tone: 'neutral',
-  aiProvider: 'claude',
+  aiProvider: 'gemini',
   contentOptions: {
     includeCode: false,
     includeDiagrams: false,
